@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <SelectDialog
+        id = "MatNumVH"
+        title="Material Number"
+        class="sapUiPopupWithPadding"
+        items="{VHModelResult>/}"
+        confirm="_handleMatNumValueHelpClose"
+        cancel="_handleMatNumValueHelpClose"
+        search="_handleMatNumValueHelpSearch"
+        rememberSelections="false"
+        showClearButton="true"
+        multiSelect="true">
+        <StandardListItem
+            icon="{ProductPicUrl}"
+            iconDensityAware="false"
+            iconInset="false"
+            title="{VHModelResult>Material}"
+            description="{VHModelResult>MaterialDesc}" />
+    </SelectDialog>
+</core:FragmentDefinition>

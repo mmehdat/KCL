@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+<SelectDialog
+        id = "MatGrpVH"
+        title="Material Group"
+        class="sapUiPopupWithPadding"
+        items="{VHModelResult>/}"
+        search="_handleMatGrpValueHelpSearch"
+        confirm="_handleMatGrpValueHelpClose"
+        cancel="_handleMatGrpValueHelpClose"
+        rememberSelections="false"
+        showClearButton="true"
+        multiSelect="true">
+        <StandardListItem
+            icon="{ProductPicUrl}"
+            iconDensityAware="false"
+            iconInset="false"
+            title="{VHModelResult>MaterialGroup}"
+            description="{VHModelResult>MaterialGroupDesc}" />
+    </SelectDialog>
+</core:FragmentDefinition>

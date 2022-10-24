@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_SALES_FORECAST_7MNTHS_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="SalesForecastData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProdHier" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Product Hierarchy" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MatDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MatGroup" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Material Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProdSaleStatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Product Sale Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock1" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 1st month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po1" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 1st Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt1" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 1st Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls1" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 1st Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock2" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 2nd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po2" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 2nd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt2" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 2nd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls2" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 2nd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock3" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 3rd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po3" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 3rd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt3" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 3rd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls3" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 3rd Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock4" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 4th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po4" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 4th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt4" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 4th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls4" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 4th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock5" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 5th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po5" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 5th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt5" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 5th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls5" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 5th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock6" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 6th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po6" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 6th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt6" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 6th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls6" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 6th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock7" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK 7th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Po7" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="PO 7th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rt7" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="RT 7th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sls7" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="SLS 7th Month" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Sales Org" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MatType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Mat Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stock8" Type="Edm.Decimal" Nullable="false" Precision="18" Scale="2" sap:unicode="false" sap:label="STOCK_8th" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DivisionVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Division"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Division" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DivisionName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Division Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="MaterialVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="MatLanguageerial No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaterialDesc" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Material Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="MaterialTypeVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaterialType"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Material Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaterialTypeDesc" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Material Type Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="MatGroupVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MaterialGroup"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="MaterialGroup" Type="Edm.String" Nullable="false" MaxLength="9" sap:unicode="false" sap:label="Material Group" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaterialGroupDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Material Group Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SalesOrgVH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SalesOrg"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SalesOrgDesc" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Sales Organization Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZGW_SALES_FORECAST_7MNTHS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SalesForecastDataSet" EntityType="ZGW_SALES_FORECAST_7MNTHS_SRV.SalesForecastData" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DivisionVHSet" EntityType="ZGW_SALES_FORECAST_7MNTHS_SRV.DivisionVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MaterialVHSet" EntityType="ZGW_SALES_FORECAST_7MNTHS_SRV.MaterialVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MaterialTypeVHSet" EntityType="ZGW_SALES_FORECAST_7MNTHS_SRV.MaterialTypeVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="MatGroupVHSet" EntityType="ZGW_SALES_FORECAST_7MNTHS_SRV.MatGroupVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SalesOrgVHSet" EntityType="ZGW_SALES_FORECAST_7MNTHS_SRV.SalesOrgVH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://s4d.kubota-kna.com:44300/sap/opu/odata/sap/ZGW_SALES_FORECAST_7MNTHS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4d.kubota-kna.com:44300/sap/opu/odata/sap/ZGW_SALES_FORECAST_7MNTHS_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

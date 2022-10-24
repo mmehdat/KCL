@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+<SelectDialog
+        id = "strgLocVH"
+        title="Storage Location"
+        class="sapUiPopupWithPadding"
+        items="{VHModelResult>/}"
+        search="_strgLocValueHelpSearch"
+        confirm="_handlestrgLocValueHelpClose"
+        cancel="_handlestrgLocValueHelpClose"       
+        rememberSelections="false"
+        showClearButton="true"
+        multiSelect="true">
+        <StandardListItem
+            title="{VHModelResult>Prodorderissuelocation}"
+            description="{VHModelResult>Storagelocationdesc}" />
+    </SelectDialog>
+</core:FragmentDefinition>

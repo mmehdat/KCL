@@ -1,0 +1,539 @@
+<!-- 
+Program Name     : zsalesfrcstreport                                                                          *
+Process Area     : OTC                                             
+Sub-Module       : Sales Order                                      
+Author (userid)  : Shubham Guha(SGuha)                                  
+Functional Name  : ZAFAR KHAN (ZKHAN)                                   
+Create Date      : 21 Oct   2021                                    
+Program Type     : Custom FreeStyle UI5 Development                                      
+Description      : Display sales record for 7 months 
+Transport        : S4DK904355
+Package          : ZOTC_RPT
+BSP Application  : YY1_ZSLSFCSTRPT
+Catlog           : ZC_OTC_SLS_ANLY_PRED
+Group            : ZG_OTC_SLS_ANLY_PRED
+Work Item        : 1200000545
+SAPUI5 Component : com.kubota.otc.zsalesfrcstreport
+
+**********Defect************
+Defect Number: 8000000572
+Date of Defect:9th Oct
+Owner: Shubham Guha (SGUHA)
+Descpription: Add Varient Management
+Transport: S4DK906647
+****************************************
+
+-->
+<mvc:View controllerName="com.kubota.otc.zsalesfrcstreport.controller.MainScreen" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:fb="sap.ui.comp.filterbar" xmlns:t="sap.ui.table" xmlns="sap.m">
+	<App id="app">
+		<Page id="page" showHeader="true">
+			<headerContent>
+				<!-- Start OF DEFECT:8000000572   SGUHA   -->
+				<Label id="variantLabel" text="Standard*" width="15rem" textAlign="End" design="Bold"/>
+				<core:Icon src="sap-icon://navigation-down-arrow" press="onVariantSelect" class="size2"/>
+			</headerContent>
+			<!-- End OF DEFECT:8000000572   SGUHA -->
+			<content>
+				<!-- Start of selection screen -->
+				<l:VerticalLayout width="100%">
+					<fb:FilterBar reset="onReset" showRestoreButton="false" showClearButton="false" showGoOnFB="false">
+						<fb:filterGroupItems>
+							<fb:FilterGroupItem groupName="__$INTERNAL$" name="B" label="{i18n>matnum}" labelTooltip="Tooltip Example" partOfCurrentVariant="true"
+								visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="matnum" width="100%" showValueHelp="true" valueHelpRequest="MatNumValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G1" groupTitle="Group1" name="A1" label="{i18n>Division}" labelTooltip="Tooltip GroupItem Example"
+								visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="division" showValueHelp="true" valueHelpRequest="DivisionValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G2" groupTitle="Group2" name="B1" label="{i18n>matgrp}" visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="matgrp" showValueHelp="true" valueHelpRequest="MatGrpValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G3" groupTitle="Group3" name="A2" label="{i18n>matdef}" labelTooltip="Tooltip GroupItem Example"
+								visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="matdef" showValueHelp="true" valueHelpRequest="MatDefValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G4" groupTitle="Group4" name="B2" label="{i18n>mattype}" visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="mattype" showValueHelp="true" valueHelpRequest="MatTypeValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G5" groupTitle="Group5" name="C1" label="{i18n>docType}" visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="doctype" showValueHelp="true" valueHelpRequest="SalesDocTypeValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+							<fb:FilterGroupItem groupName="G6" groupTitle="Group6" name="D1" label="{i18n>strgLoc}" visibleInFilterBar="true">
+								<fb:control>
+									<MultiInput id="strgLoc" showValueHelp="true" valueHelpRequest="strgLocValueHelp"/>
+								</fb:control>
+							</fb:FilterGroupItem>
+						</fb:filterGroupItems>
+					</fb:FilterBar>
+				</l:VerticalLayout>
+				<!-- End of selection screen -->
+				<!-- Start of Adding Radio Button -->
+				<HBox class="sapUiSmallMargin">
+					<RadioButton groupName="GroupA" id="radR" text="{i18n>radR}" selected="true"/>
+					<RadioButton groupName="GroupA" id="radC" text="{i18n>radC}"/>
+				</HBox>
+				<!-- End of Adding Radio Button -->
+				<!-- Start of table -->
+				<t:Table id="HorzTable" selectionMode="None" rows="{HorzTableDataModel>/}" visibleRowCount="7" sort="sortDeliveryDate"
+					ariaLabelledBy="title" visible="true">
+					<t:extension>
+						<OverflowToolbar>
+							<ToolbarSpacer/>
+							<!-- <Button icon="sap-icon://action-settings" press="onPersoButtonPressed" >
+                                <layoutData>
+                                    <OverflowToolbarLayoutData priority="NeverOverflow" />
+                                </layoutData>
+                            </Button> -->
+							<Button icon="sap-icon://excel-attachment" tooltip="Download To Excel" press="downloadToExcel"/>
+						</OverflowToolbar>
+					</t:extension>
+					<t:columns>
+						<t:Column id="Material" width="9rem" sortProperty="Material" filterProperty="Material">
+							<Label text="Material"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Material}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatDsc" width="9rem" sortProperty="MatDesc" filterProperty="MatDesc">
+							<Label text="Material Description"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatDesc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="ProdHire" width="9rem" sortProperty="ProdHier" filterProperty="ProdHier">
+							<Label text="Prod Hire."/>
+							<t:template>
+								<Text text="{HorzTableDataModel>ProdHier}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatGroup" width="9rem" sortProperty="MatGroup" filterProperty="MatGroup">
+							<Label text="Material Group"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatGroup}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatGroupDesc" width="12rem" sortProperty="MatGroupDesc" filterProperty="MatGroupDesc">
+							<Label text="Material Group Desc"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatGroupDesc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<!--<t:Column id="StGroup1" width="9rem" sortProperty="ProdSaleStatus">
+                            <Label text="Status" />
+                            <t:template>
+                                <Text text="{HorzTableDataModel>ProdSaleStatus}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column id="CustGroup" width="9rem" sortProperty="CustGroup">
+                            <Label text="Customer Group" />
+                            <t:template>
+                                <Text text="{HorzTableDataModel>CustGroup}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>
+                        <t:Column id="CustGroupDesc" width="14rem" sortProperty="CustGroupDesc">
+                            <Label text="Customer Group Description" />
+                            <t:template>
+                                <Text text="{HorzTableDataModel>CustGroupDesc}" wrapping="false"/>
+                            </t:template>
+                        </t:Column>-->
+						<t:Column id="CPMatStatus" width="10rem" sortProperty="CPMatStatus" filterProperty="CPMatStatus">
+							<Label text="Cross-Plant Material Status"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>CPMatStatus}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="CPMatStatusDesc" width="18rem" sortProperty="CPMatStatusDesc" filterProperty="CPMatStatusDesc">
+							<Label text="Cross-Plant Material Status Description"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>CPMatStatusDesc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="CDCMatStatus" width="10rem" sortProperty="CDCMatStatus" filterProperty="CDCMatStatus">
+							<Label text="Cross-distribution-chain material status"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>CDCMatStatus}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="CDCMatStatusDesc" width="18rem" sortProperty="CDCMatStatusDesc" filterProperty="CDCMatStatusDesc">
+							<Label text="Cross-distribution-chain material status Description"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>CDCMatStatusDesc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatStatus" width="10rem" sortProperty="MatStatus" filterProperty="MatStatus">
+							<Label text="Plant-Specific Material Status"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatStatus}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatStatusDesc" width="18rem" sortProperty="MatStatusDesc" filterProperty="MatStatusDesc">
+							<Label text="Plant-Specific Material Status Description"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatStatusDesc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatType" width="10rem" sortProperty="MatType" filterProperty="MatType">
+							<Label text="Material Type"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatType}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatTypeDesc" width="18rem" sortProperty="MatTypeDesc" filterProperty="MatTypeDesc">
+							<Label text="Material Type Desc"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatTypeDesc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatGroup1" width="10rem" sortProperty="MatGroup1" filterProperty="MatGroup1">
+							<Label text="Material group 1"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatGroup1}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="MatGroup1Desc" width="18rem" sortProperty="MatGroup1Desc" filterProperty="MatGroup1Desc">
+							<Label text="Material group 1 Description"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>MatGroup1Desc}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="ControlCode" width="8rem" sortProperty="ControlCode" filterProperty="ControlCode">
+							<Label text="Control code"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>ControlCode}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="PurchGroup" width="8rem" sortProperty="PurchGroup" filterProperty="PurchGroup">
+							<Label text="Purchasing Group"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>PurchGroup}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="POPlacedCount" width="11rem" sortProperty="POPlacedCount" filterProperty="POPlacedCount">
+							<Label text="No Of Times PO Placed"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>POPlacedCount}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="OnHand1" width="9rem" sortProperty="Stock1" filterProperty="Stock1">
+							<Label id="Month1OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock1}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po1" filterProperty="Po1">
+							<Label id="Month1PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po1}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return1" width="9rem" sortProperty="Rt1" filterProperty="Rt1">
+							<Label id="Month1Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt1}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales1" width="9rem" sortProperty="Sls1" filterProperty="Sls1">
+							<Label id="Month1Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls1}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="OnHand2" width="9rem" sortProperty="Stock2" filterProperty="Stock2">
+							<Label id="Month2OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock2}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po2" filterProperty="Po2">
+							<Label id="Month2PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po2}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return2" width="12rem" sortProperty="Rt2" filterProperty="Rt2">
+							<Label id="Month2Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt2}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales2" width="9rem" sortProperty="Sls2" filterProperty="Sls2">
+							<Label id="Month2Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls2}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="OnHand3" width="9rem" sortProperty="Stock3" filterProperty="Stock3">
+							<Label id="Month3OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock3}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po3" filterProperty="Po3">
+							<Label id="Month3PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po3}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return3" width="9rem" sortProperty="Rt3" filterProperty="Rt3">
+							<Label id="Month3Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt3}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales3" width="9rem" sortProperty="Sls3" filterProperty="Sls3">
+							<Label id="Month3Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls3}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="OnHand4" width="11rem" sortProperty="Stock4" filterProperty="Stock4">
+							<Label id="Month4OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock4}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po4" filterProperty="Po4">
+							<Label id="Month4PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po4}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return4" width="9rem" sortProperty="Rt4" filterProperty="Rt4">
+							<Label id="Month4Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt4}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales4" width="9rem" sortProperty="Sls4" filterProperty="Sls4">
+							<Label id="Month4Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls4}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="11rem" sortProperty="Stock5" filterProperty="Stock5">
+							<Label id="Month5OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock5}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand5" width="9rem" sortProperty="Po5" filterProperty="Po5">
+							<Label id="Month5PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po5}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return5" width="9rem" sortProperty="Rt5" filterProperty="Rt5">
+							<Label id="Month5Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt5}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales5" width="9rem" sortProperty="Sls5" filterProperty="Sls5">
+							<Label id="Month5Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls5}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="OnHand6" width="11rem" sortProperty="Stock6" filterProperty="Stock6">
+							<Label id="Month6OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock6}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po6" filterProperty="Po6">
+							<Label id="Month6PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po6}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return6" width="9rem" sortProperty="Rt6" filterProperty="Rt6">
+							<Label id="Month6Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt6}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales6" width="9rem" sortProperty="Sls6" filterProperty="Sls6">
+							<Label id="Month6Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls6}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand7" width="11rem" sortProperty="Stock7" filterProperty="Stock7">
+							<Label id="Month7OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock7}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po7" filterProperty="Po7">
+							<Label id="Month7PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po7}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return7" width="9rem" sortProperty="Rt7" filterProperty="Rt7">
+							<Label id="Month7Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt7}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales7" width="9rem" sortProperty="Sls7" filterProperty="Sls7">
+							<Label id="Month7Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls7}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand8" width="11rem" sortProperty="Stock8" filterProperty="Stock8">
+							<Label id="Month8OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock8}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po8" filterProperty="Po8">
+							<Label id="Month8PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po8}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return8" width="9rem" sortProperty="Rt8" filterProperty="Rt8">
+							<Label id="Month8Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt8}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales8" width="9rem" sortProperty="Sls8" filterProperty="Sls8">
+							<Label id="Month8Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls8}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand9" width="11rem" sortProperty="Stock9" filterProperty="Stock9">
+							<Label id="Month9OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock9}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po9" filterProperty="Po9">
+							<Label id="Month9PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po9}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return9" width="9rem" sortProperty="Rt9" filterProperty="Rt9">
+							<Label id="Month9Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt9}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales9" width="9rem" sortProperty="Sls9" filterProperty="Sls9">
+							<Label id="Month9Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls9}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand10" width="11rem" sortProperty="Stock10" filterProperty="Stock10">
+							<Label id="Month10OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock10}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po10" filterProperty="Po10">
+							<Label id="Month10PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po10}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return10" width="9rem" sortProperty="Rt10" filterProperty="Rt10">
+							<Label id="Month10Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt10}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales10" width="9rem" sortProperty="Sls10" filterProperty="Sls10">
+							<Label id="Month10Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls10}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand11" width="11rem" sortProperty="Stock11" filterProperty="Stock11">
+							<Label id="Month11OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock11}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po11" filterProperty="Po11">
+							<Label id="Month11PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po11}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return11" width="9rem" sortProperty="Rt11" filterProperty="Rt11">
+							<Label id="Month11Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt11}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales11" width="9rem" sortProperty="Sls11" filterProperty="Sls11">
+							<Label id="Month11Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls11}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand12" width="11rem" sortProperty="Stock12" filterProperty="Stock12">
+							<Label id="Month12OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock12}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column width="9rem" sortProperty="Po12" filterProperty="Po12">
+							<Label id="Month12PO"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Po12}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Return12" width="9rem" sortProperty="Rt12" filterProperty="Rt12">
+							<Label id="Month12Return"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Rt12}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="Sales12" width="9rem" sortProperty="Sls12" filterProperty="Sls12">
+							<Label id="Month12Sales"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Sls12}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+						<t:Column id="onHand13" width="11rem" sortProperty="Stock13" filterProperty="Stock13">
+							<Label id="Month13OnHand"/>
+							<t:template>
+								<Text text="{HorzTableDataModel>Stock13}" wrapping="false"/>
+							</t:template>
+						</t:Column>
+					</t:columns>
+				</t:Table>
+				<!-- END of table -->
+			</content>
+			<footer>
+				<OverflowToolbar>
+					<!-- Start of execute buttom in Footer -->
+					<ToolbarSpacer/>
+					<Button text="Execute" type="Emphasized" press="onExecute"/>
+					<!-- End of execute buttom in Footer -->
+				</OverflowToolbar>
+			</footer>
+		</Page>
+	</App>
+</mvc:View>

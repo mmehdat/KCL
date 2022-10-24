@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+<SelectDialog
+        id = "SalesOrgVH"
+        title="Sales Organisation"
+        class="sapUiPopupWithPadding"
+        items="{VHModelResult>/}"
+        search="_handleSalesOrgValueHelpSearch"
+        confirm="_handleSalesOrgValueHelpClose"
+        cancel="_handleSalesOrgValueHelpClose"
+        rememberSelections="false"
+        showClearButton="true"
+        multiSelect="true">
+        <StandardListItem
+            icon="{ProductPicUrl}"
+            iconDensityAware="false"
+            iconInset="false"
+            title="{VHModelResult>SalesOrg}"
+            description="{VHModelResult>SalesOrgDesc}" />
+    </SelectDialog>
+</core:FragmentDefinition>

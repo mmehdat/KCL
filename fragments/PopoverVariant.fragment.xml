@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Popover
+        title="My Views"
+        class="sapUiResponsivePadding--header sapUiResponsivePadding--footer"
+        placement="Bottom"
+        initialFocus="SaveAs" contentHeight="20rem" contentMinWidth="15rem">
+        <List id = "VariantList" 
+        items="{
+           path: 'VariantData>/Result'         
+        }" >
+        <StandardListItem 
+            title="{VariantData>Variant}" press="onVariantClick" type="Active"/>
+        </List>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    id="SaveVar"
+                    text="Save"
+                    press="handleSavePress" 
+                    visible="false"/>
+                <Button
+                    id="SaveAs"
+                    text="Save As"
+                    press="handleSaveAsPress" />
+                <Button
+                    id="Manage"
+                    text="Manage"
+                    press="handleManagePress" />
+            </OverflowToolbar>
+        </footer>
+    </Popover>
+</core:FragmentDefinition>

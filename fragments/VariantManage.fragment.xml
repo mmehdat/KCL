@@ -1,0 +1,47 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t ="sap.ui.table">
+    <Dialog
+      id="ManageVariant"
+      title="Manage Variant" contentHeight="18rem" contentWidth="35rem" resizable="true">
+      <content>
+      <t:Table
+               id = "VariantTable"
+                rows="{varManage>/Result}"
+                visibleRowCountMode="Fixed"
+                visibleRowCount="10"
+                selectionMode="None"
+                ariaLabelledBy="title">
+                <t:columns>
+                   <t:Column width="11rem">
+                        <Label text="Variant Name" />
+                        <t:template>
+                            <Text text="{varManage>Variant}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <Label text="Created By" />
+                        <t:template>
+                            <Text text="{varManage>User}"/>
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="6rem" hAlign="End">
+                        <Label text="Default" />
+                        <t:template>
+                            <RadioButton groupName="GroupE" selected = "{= ${varManage>Default}==='X'}" select="onDefaultRBSelected" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="6rem" hAlign="End">
+                        <t:template>
+                            <Button text = "Delete" press = "onDeleteVariant"/>
+                        </t:template>
+                    </t:Column>
+               </t:columns>
+       </t:Table>
+      </content>
+      <endButton>
+      <Button text = "Close" press="onCloseManageVariant"/>
+      </endButton>
+     </Dialog>
+</core:FragmentDefinition>

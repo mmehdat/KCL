@@ -1,0 +1,190 @@
+{
+    "resources": [
+        {
+            "name": "localService/mockserver-dbg.js"
+        },
+        {
+            "name": "localService/mockserver.js"
+        },
+        {
+            "name": "localService/metadata.xml"
+        },
+        {
+            "name": "resources.json",
+            "merged": true
+        },
+        {
+            "name": ".project.json"
+        },
+        {
+            "name": "Component.js"
+        },
+        {
+            "name": "controller/App-dbg.controller.js"
+        },
+        {
+            "name": "controller/App.controller.js"
+        },
+        {
+            "name": "controller/MainScreen-dbg.controller.js"
+        },
+        {
+            "name": "controller/MainScreen.controller.js"
+        },
+        {
+            "name": "manifest-bundle.zip"
+        },
+        {
+            "name": "test/initMockServer.js"
+        },
+        {
+            "name": "test/initFlpSandbox-dbg.js"
+        },
+        {
+            "name": "test/flpSandbox.js"
+        },
+        {
+            "name": "test/testsuite.qunit.html"
+        },
+        {
+            "name": "test/testsuite.qunit-dbg.js"
+        },
+        {
+            "name": "test/integration/pages/View1.js"
+        },
+        {
+            "name": "test/integration/pages/View1-dbg.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney.js"
+        },
+        {
+            "name": "test/integration/AllJourneys.js"
+        },
+        {
+            "name": "test/integration/AllJourneys-dbg.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup-dbg.js"
+        },
+        {
+            "name": "test/integration/arrangements/Startup.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit-dbg.js"
+        },
+        {
+            "name": "test/integration/NavigationJourney-dbg.js"
+        },
+        {
+            "name": "test/integration/opaTests.qunit.html"
+        },
+        {
+            "name": "test/flpSandbox.html"
+        },
+        {
+            "name": "test/testsuite.qunit.js"
+        },
+        {
+            "name": "test/unit/AllTests.js"
+        },
+        {
+            "name": "test/unit/AllTests-dbg.js"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.js"
+        },
+        {
+            "name": "test/unit/unitTests.qunit.html"
+        },
+        {
+            "name": "test/unit/unitTests.qunit-dbg.js"
+        },
+        {
+            "name": "test/unit/controller/App.controller.js"
+        },
+        {
+            "name": "test/unit/controller/App-dbg.controller.js"
+        },
+        {
+            "name": "test/flpSandbox-dbg.js"
+        },
+        {
+            "name": "test/initFlpSandbox.js"
+        },
+        {
+            "name": "test/mockServer.html"
+        },
+        {
+            "name": "test/initMockServer-dbg.js"
+        },
+        {
+            "name": "resources/sap-ui-version.json"
+        },
+        {
+            "name": "Component-dbg.js"
+        },
+        {
+            "name": "css/style.css"
+        },
+        {
+            "name": "index.html"
+        },
+        {
+            "name": "fragments/strgLocVH.fragment.xml"
+        },
+        {
+            "name": "fragments/PopoverVariant.fragment.xml"
+        },
+        {
+            "name": "fragments/MatNumVH.fragment.xml"
+        },
+        {
+            "name": "fragments/DivisionVH.fragment.xml"
+        },
+        {
+            "name": "fragments/MatGrpVH.fragment.xml"
+        },
+        {
+            "name": "fragments/SalesDocTypeVH.fragment.xml"
+        },
+        {
+            "name": "fragments/MatTypeVH.fragment.xml"
+        },
+        {
+            "name": "fragments/SalesOrgVH.fragment.xml"
+        },
+        {
+            "name": "fragments/VariantManage.fragment.xml"
+        },
+        {
+            "name": "i18n/i18n.properties",
+            "raw": "i18n/i18n.properties"
+        },
+        {
+            "name": "view/MainScreen.view.xml"
+        },
+        {
+            "name": "view/App.view.xml"
+        },
+        {
+            "name": "manifest.json"
+        },
+        {
+            "name": "model/models-dbg.js"
+        },
+        {
+            "name": "model/models.js"
+        },
+        {
+            "name": "Component-preload.js",
+            "merged": true
+        },
+        {
+            "name": "neo-app.json"
+        }
+    ]
+}

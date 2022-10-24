@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+<SelectDialog
+        id = "SalesDocTypeVH"
+        title="Sales Doc. Type"
+        class="sapUiPopupWithPadding"
+        items="{VHModelResult>/}"
+        search="_handleSalesDocTypeValueHelpSearch"
+        confirm="_handleSalesDocTypeValueHelpClose"
+        cancel="_handleSalesDocTypeValueHelpClose"       
+        rememberSelections="false"
+        showClearButton="true"
+        multiSelect="true">
+        <StandardListItem
+            title="{VHModelResult>Salesdocumenttype}"
+            description="{VHModelResult>Salesdocumenttypename}" />
+    </SelectDialog>
+</core:FragmentDefinition>
